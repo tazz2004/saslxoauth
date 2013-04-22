@@ -214,7 +214,7 @@ int _plug_iovec_to_buf(const sasl_utils_t *utils, const struct iovec *vec,
 }
 
 /* Basically a conditional call to realloc(), if we need more */
-int _plug_buf_alloc(const sasl_utils_t *utils, char **rwbuf,
+int __attribute__((visibility("hidden"))) _plug_buf_alloc(const sasl_utils_t *utils, char **rwbuf,
 		    unsigned *curlen, unsigned newlen)
 {
     if(!utils || !rwbuf || !curlen) {
@@ -249,7 +249,7 @@ int _plug_buf_alloc(const sasl_utils_t *utils, char **rwbuf,
 }
 
 /* copy a string */
-int _plug_strdup(const sasl_utils_t * utils, const char *in,
+int __attribute__((visibility("hidden"))) _plug_strdup(const sasl_utils_t * utils, const char *in,
 		 char **out, int *outlen)
 {
   size_t len = strlen(in);
